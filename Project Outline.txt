@@ -1,0 +1,99 @@
+Assignment 2
+CrossFire
+
+Project outline
+
+
+Main file example
+	Declare player array size 6
+	Declare slot array size 20
+	ints for number of players and slots
+	
+	Input number of players function
+	
+	Input player names and types function (also fills out the life points and capabilities of the players)
+	
+	Input number of slots function
+	
+	Generate random slots function
+	
+	Place players into slots function
+	
+	Loop for asking to move or attack
+	 Move or attack according to user input
+	
+	Print players function
+
+
+
+Header
+	Defined constants 
+	 Max number of players
+	 Max nummber of slots
+	 (Maybe other constants if we need them)
+	
+	Stucts for players and slots
+	 Players
+	  Player Type
+	  Name
+	  LifePoints 
+	  Current Slot
+	  Smartness
+	  Strength
+	  Magic Skills
+	  Luck
+	  Dexterity
+	  
+	 Slots
+	  Slot Type Num (We can wse numbers form 0 to 2 to make it easier to find the slots with code)
+	  Slot Type String
+	  Player currently in slot
+	
+	Function declerations.
+	
+	
+
+Player Functions
+	Assign capabilities to players
+
+	Moving
+	 Check tile types to move to and from
+	 Adjust capabilities of player
+	 Move Player
+	 
+	Attacking
+	 Check strength of attacked
+	 Adjust life points
+	
+	Print list of players
+ 	 Format Name (Type, lifePoints)
+	
+	Input
+
+	Player choice
+	 Display avilable choices
+	 Input for what is chosen
+	 
+	Input functions
+	 Number of players
+	 Info for each player
+	  Name
+	  Type
+
+
+
+Slot Functions
+	Input number of slots
+		
+	Random slot generation
+	 Generate an array of slots 
+	  Random number form 0 to 2
+	 Assign players randomly to slots
+
+
+ 
+
+
+
+
+
