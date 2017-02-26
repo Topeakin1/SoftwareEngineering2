@@ -5,9 +5,9 @@ Project outline
 
 
 Main file example
-	Declare player array size 6
-	Declare slot array size 20
-	ints for number of players and slots
+  - Declare player array size 6
+  - Declare slot array size 20
+  - ints for number of players and slots
 	
 	Input number of players function
 	
@@ -28,26 +28,26 @@ Main file example
 
 Header
 	Defined constants 
-	 Max number of players
-	 Max nummber of slots
+  -  Max number of players 
+  -  Max nummber of slots  
 	 (Maybe other constants if we need them)
 	
-	Stucts for players and slots
-	 Players
-	  Player Type
-	  Name
-	  LifePoints 
-	  Current Slot
-	  Smartness
-	  Strength
-	  Magic Skills
-	  Luck
-	  Dexterity
+  - Stucts for players and slots
+  -  Players
+  -   Player Type
+  -   Name
+  -   LifePoints 
+  -   Current Slot
+  -   Smartness
+  -   Strength
+  -   Magic Skills
+  -   Luck
+  -   Dexterity
 	  
-	 Slots
-	  Slot Type Num (We can wse numbers form 0 to 2 to make it easier to find the slots with code)
-	  Slot Type String
-	  Player currently in slot
+  -  Slots
+  -   Slot Type Num (We can wse numbers form 0 to 2 to make it easier to find the slots with code)
+  -   Slot Type String
+  -   Player currently in slot
 	
 	Function declerations.
 	
