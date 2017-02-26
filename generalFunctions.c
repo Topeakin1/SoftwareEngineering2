@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "Assignment2Header.h"
 
 int RandInt(int min, int max)
 {
