@@ -11,7 +11,7 @@ int RandInt(int min, int max);
 
 int main(void) 
 {
-	int i;
+	int i; 
 	int min;
 	int max;
 	char SlotArray[20];
