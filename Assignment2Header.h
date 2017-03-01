@@ -1,10 +1,9 @@
-
 #ifndef ASSIGNMENT2HEADER_H_
 #define ASSIGNMENT2HEADER_H_
 
 // Defined constant variables
-#define PLAYER_MAX_SIZE 6
-#define SLOT_MAX_SIZE 6
+#define PLAYER_MAX 6
+#define SLOT_MAX 6
 #define MAX_STRING_LENGTH 20
 
 // Structs for players and slots.
@@ -28,7 +27,10 @@ typedef struct Slot{
 
 // Function prototypes.
 int RandInt(int min, int max);
+
+// Player functions
 int NumberOfPlayers();
+void InputPlayerInfo(int playerCoutn, Player * players);
 
 
 #endif
