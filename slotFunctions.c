@@ -2,11 +2,20 @@
 #include <time.h>
 #include <stdlib.h>
 #include "Assignment2Header.h"
+#define ASSIGNMENT2HEADER_H_
+#define ASSIGNMENT2HEADER_H_
 
-	typedef struct Slots
-	{
-		char SlotArray[20];
-    };
+// Defined constant variables
+#define PLAYER_MAX_SIZE 6
+#define SLOT_MAX_SIZE 6
+#define MAX_STRING_LENGTH 20
+
+	Slot{
+    int slotTypeNum;
+    char slotType[MAX_STRING_LENGTH];
+    int CurrentPlayer;
+} ;
+	
 int RandInt(int min, int max);
 
 int main(void) 
@@ -16,7 +25,7 @@ int main(void)
 	int max;
 	char SlotArray[20];
 
-	{   for(i=0; SlotArray[i]<100; i++) {
+	{   for(i=0; SlotArray[i]<MAX_STRING_LENGTH; i++) {
 		struct Slot;
 		printf("Please enter in the amount of slots\n");
 		scanf("%c",SlotArray[i]); 
@@ -36,6 +45,7 @@ int main(void)
     randInt %= max + 1;
     
     randInt += min;
+    randInt= SlotArray[i];
 
     return randInt;
 }
