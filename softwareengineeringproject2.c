@@ -5,13 +5,15 @@
 
 int main(void) {
 	srand(time(NULL));
-	Player players[PLAYER_MAX_SIZE]; 
+	Player players[PLAYER_MAX]; 
 	int slots;
-	int playersCount;
-	printf("%d", RandInt(4, 10));
-    
+	int playersCount;    
 
+    // Reads in number of playerrs from user and stores it in the playerCount variable.
     playersCount = NumberOfPlayers();
+    
+    // Takes input for names and types for the players.
+    InputPlayerInfo(playersCount, players);
     
     /*
 	Input player names and types function (also fills out the life points and capabilities of the players)
