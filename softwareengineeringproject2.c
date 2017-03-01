@@ -6,22 +6,24 @@
 int main(void) {
 	srand(time(NULL));
 	Player players[PLAYER_MAX]; 
-	int slots;
+    Slot slots[SLOT_MAX];
+    
+	int slotsCount;
 	int playersCount;    
 
-    // Reads in number of playerrs from user and stores it in the playerCount variable.
+    // Reads in number of players from user and stores it in the playersCount variable.
     playersCount = NumberOfPlayers();
     
-    // Takes input for names and types for the players.
+    // Takes input for names, types and charactersitics for the players.
     InputPlayerInfo(playersCount, players);
     
-    /*
-	Input player names and types function (also fills out the life points and capabilities of the players)
+    // Reads in number of slots from user and stores it in the slotCount variable.
+	slotsCount = NumberOfSlots(playersCount);
 	
-	Input number of slots function
-	
-	Generate random slots function
-	
+    // Fills slot array with random slots.
+	FillSlotArray(slotsCount, slots);
+    
+	/*
 	Place players into slots function
 	
 	Loop for asking to move or attack

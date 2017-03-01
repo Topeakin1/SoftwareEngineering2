@@ -3,7 +3,7 @@
 
 // Defined constant variables
 #define PLAYER_MAX 6
-#define SLOT_MAX 6
+#define SLOT_MAX 20
 #define MAX_STRING_LENGTH 20
 
 // Structs for players and slots.
@@ -31,6 +31,10 @@ int RandInt(int min, int max);
 // Player functions
 int NumberOfPlayers();
 void InputPlayerInfo(int playerCoutn, Player * players);
+
+// Slot functions
+void FillSlotArray(int NumberOfSlots,struct Slot Slots[]);
+int NumberOfSlots(int PlayersCount);
 
 
 #endif
