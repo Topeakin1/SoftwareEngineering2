@@ -28,3 +28,20 @@ int NumberOfSlots(int PlayersCount) {
 	}while(reply < PlayersCount || reply > SLOT_MAX);
 	return reply;
 }
+
+void PlayersNSlots(struct slot Slots[],int NumberOfSlots)
+{
+	int i, j;
+	srand((unsigned) time(NULL)) ;
+	for(i=0; i<NumberOfSlots; i++) 
+	{
+		Slots[i].CurrentPlayer=0;
+	}
+	
+	for(i=1; i<NumberOfSlots; i++)
+	{
+		j=rand() % NumberOfSlots;
+		if(Slots[j].CurrentPlayer == 0)
+		Slots[j].CurrentPlayer = i;
+	}
+}
