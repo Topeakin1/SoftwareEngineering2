@@ -26,11 +26,14 @@ int NumberOfPlayers()
     return numberOfPlayers;
 }
 
+
 //   Takes input for each player and stores their info in the players array.
 void InputPlayerInfo(int playerCoutn, Player * players)
 {
-    int playerTypeNum;
-    char *playerTypes[4] = {"Elf", "Human", "Ogre", "Wizard"};
+    void (*playerTypes[4])(Player *currentPlayer) = \
+    {ElfPlayer, HumanPlayer, OgrePlayer, WizardPlayer};
+    // Array of pointers to functions for each player type. 
+    
     char tempInput[MAX_STRING_LENGTH];
     
     for(int i = 0; i < playerCoutn; i++)
@@ -39,8 +42,8 @@ void InputPlayerInfo(int playerCoutn, Player * players)
         fgets(players[i].name, MAX_STRING_LENGTH - 1, stdin);
         // Take a string as input and assign it to the name of the current player.
         
-        playerTypeNum = 0;
-        while(playerTypeNum < 1 || playerTypeNum > 4)
+        players[i].type = -1;
+        while(players[i].type < 0 || players[i].type > 3)
         {
             printf("\nChose a player type: \
                     \n 1. Elf\
@@ -49,11 +52,66 @@ void InputPlayerInfo(int playerCoutn, Player * players)
                     \n 4. Wizard\
                     \n : ");
             fgets(tempInput, MAX_STRING_LENGTH - 1, stdin);
-            playerTypeNum = strtol(tempInput, NULL, 10);
+            players[i].type = strtol(tempInput, NULL, 10) - 1;
         }
         // Player choses a number between 1 and 4 and if it is valid, that player type gets chosen.
         
-        strcpy(players[i].type, playerTypes[playerTypeNum - 1]);
-        // Copies the string of the player type into the player's type variable.
+        playerTypes[players[i].type](&players[i]);
+        players[i].lifePoints = 100;
+        // Calls the player type function and sets player life to 100;
     }
+}
+
+/* 
+ * Functions for generating player charactersistics.
+ * Uses the RandInt(int x, int y) function to generate 
+ * numbers from x to y inclusive.
+ * Stores thexe numbers in the current player's characteristics.
+ * 
+*/
+void ElfPlayer(Player *currentPlayer)
+{
+    currentPlayer->luck = RandInt(60, 100);
+    currentPlayer->smartness = RandInt(70, 100);
+    currentPlayer->strength = RandInt(1, 50);
+    currentPlayer->magicSkill = RandInt(50, 80);
+    currentPlayer->dexterity = RandInt(1, 100);
+}
+
+void HumanPlayer(Player *currentPlayer)
+{
+    unsigned int sum;
+    do
+    {
+        sum = 0;
+        currentPlayer->luck = RandInt(1, 100);
+        currentPlayer->smartness = RandInt(1, 100);
+        currentPlayer->strength = RandInt(1, 100);
+        currentPlayer->magicSkill = RandInt(1, 100);
+        currentPlayer->dexterity = RandInt(1, 100);
+        sum = \
+        currentPlayer->luck +\
+        currentPlayer->smartness +\
+        currentPlayer->strength +\
+        currentPlayer->magicSkill +\
+        currentPlayer->dexterity;
+    }while(sum > 300);
+}
+
+void OgrePlayer(Player *currentPlayer)
+{
+    currentPlayer->smartness = RandInt(0, 20);
+    currentPlayer->luck = RandInt(0, 50 - currentPlayer->smartness);
+    currentPlayer->strength = RandInt(80, 100);
+    currentPlayer->magicSkill = 0;
+    currentPlayer->dexterity = RandInt(80, 100);
+}
+
+void WizardPlayer(Player *currentPlayer)
+{
+    currentPlayer->luck = RandInt(50, 100);
+    currentPlayer->smartness = RandInt(90, 100);
+    currentPlayer->strength = RandInt(1, 20);
+    currentPlayer->magicSkill = RandInt(80, 100);
+    currentPlayer->dexterity = RandInt(1, 100);
 }
