@@ -32,7 +32,6 @@ int NumberOfSlots(int PlayersCount) {
 void PlayersNSlots(struct Slot Slots[],int NumberOfSlots)
 {
 	int i, j;
-	srand((unsigned) time(NULL)) ;
 	for(i=0; i<NumberOfSlots; i++) 
 	{
 		Slots[i].CurrentPlayer=0;
