@@ -29,7 +29,7 @@ int NumberOfSlots(int PlayersCount) {
 	return reply;
 }
 
-void PlayersNSlots(struct slot Slots[],int NumberOfSlots)
+void PlayersNSlots(struct Slot Slots[],int NumberOfSlots)
 {
 	int i, j;
 	srand((unsigned) time(NULL)) ;
