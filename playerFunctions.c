@@ -123,6 +123,7 @@ void WizardPlayer(Player *currentPlayer)
     currentPlayer->dexterity = RandInt(1, 100);
 }
 
+<<<<<<< HEAD
 void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots)
 {
     int i, position, choice;
@@ -228,6 +229,20 @@ void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots)
         
         // Move or attack here depending on user input.
     }
+=======
+//printing out list of players
+for(i=0; i<numberOfplayers; i++) {
+	printf("name:%s\n",players[i].name);
+	printf("type:%s\n",players[i].playertype);
+	printf("smartness:%d\n",players[i].smartness);
+	printf("strength:%d\n",players[i].strength);
+	printf("MagicSkill:%d\n",players[i].magicSkill);
+	printf("luck:%d\n",players[i].luck);
+	printf("lifepoints:%d\n",players[i].lifepoints);
+	printf("dexterity:%d\n",players[i].dexterity);
+	printf("currentSlot:%d\n",players[i].currentSlot);
+	
+>>>>>>> c69d472... printed out list of players
 }
 
 
