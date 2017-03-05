@@ -240,7 +240,7 @@ for(i=0; i<numberOfplayers; i++) {
 	printf("luck:%d\n",players[i].luck);
 	printf("lifepoints:%d\n",players[i].lifepoints);
 	printf("dexterity:%d\n",players[i].dexterity);
-	printf("currentSlot:%d\n",players[i].currentSlot);
+	printf("currentSlot:%d\n\n",players[i].currentSlot);
 	
 >>>>>>> c69d472... printed out list of players
 }
