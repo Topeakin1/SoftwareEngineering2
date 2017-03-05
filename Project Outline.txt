@@ -9,15 +9,15 @@ Main file example
   - Declare slot array size 20
   - ints for number of players and slots
 	
-	Input number of players function
+  - Input number of players function
 	
-	Input player names and types function (also fills out the life points and capabilities of the players)
+  - Input player names and types function (also fills out the life points and capabilities of the players)
 	
-	Input number of slots function
+  - Input number of slots function
 	
-	Generate random slots function
+  - Generate random slots function
 	
-	Place players into slots function
+  - Place players into slots function
 	
 	Loop for asking to move or attack
 	 Move or attack according to user input
@@ -54,7 +54,7 @@ Header
 	
 
 Player Functions
-	Assign capabilities to players
+  - Assign capabilities to players
 
 	Moving
 	 Check tile types to move to and from
@@ -68,27 +68,27 @@ Player Functions
 	Print list of players
  	 Format Name (Type, lifePoints)
 	
-	Input
+  - Input
 
 	Player choice
-	 Display avilable choices
-	 Input for what is chosen
+  -  Display avilable choices
+  -  Input for what is chosen
 	 
-	Input functions
-	 Number of players
-	 Info for each player
-	  Name
-	  Type
+  - Input functions
+  -  Number of players
+  -  Info for each player
+  -   Name
+  -   Type
 
 
 
 Slot Functions
-	Input number of slots
+  - Input number of slots
 		
-	Random slot generation
-	 Generate an array of slots 
-	  Random number form 0 to 2
-	 Assign players randomly to slots
+  - Random slot generation
+  -  Generate an array of slots 
+  -   Random number form 0 to 2
+  -  Assign players randomly to slots
 
 
  

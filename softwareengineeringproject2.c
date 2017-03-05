@@ -23,12 +23,11 @@ int main(void) {
     // Fills slot array with random slots.
 	FillSlotArray(slotsCount, slots);
     
-	/*
-	Place players into slots function
-	
-	Loop for asking to move or attack
-	 Move or attack according to user input
-	
+    PlayersNSlots(slots, slotsCount);
+    
+    PlayerAction(playersCount, slotsCount, players, slots);
+    
+    /*
 	Print players function
     */
 }

@@ -18,7 +18,6 @@ typedef struct Player{
     enum playerTypes type;
     char name[MAX_STRING_LENGTH];
     int lifePoints;
-    int currentSlot;
     int smartness;
     int strength;
     int magicSkill;
@@ -27,9 +26,8 @@ typedef struct Player{
 } Player;
 
 typedef struct Slot{
-    int slotTypeNum;
     char slotType[MAX_STRING_LENGTH];
-    int CurrentPlayer;
+    int currentPlayer;
 } Slot;
 
 
@@ -44,10 +42,12 @@ void ElfPlayer(Player *currentPlayer);
 void HumanPlayer(Player *currentPlayer);
 void OgrePlayer(Player *currentPlayer);
 void WizardPlayer(Player *currentPlayer);
+void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots);
 
 // Slot functions
 void FillSlotArray(int NumberOfSlots,struct Slot Slots[]);
 int NumberOfSlots(int PlayersCount);
+void PlayersNSlots(struct Slot Slots[],int NumberOfSlots);
 
 
 #endif
