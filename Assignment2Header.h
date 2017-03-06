@@ -45,6 +45,7 @@ void WizardPlayer(Player *currentPlayer);
 void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots);
 void movePlayer(Player *player, Slot *slots, int currentPosition, int newPosition);
 void attackPlayer(Player *attacker, Player *attacked);
+void Print(Player *players, int numberOfPlayers);
 
 // Slot functions
 void FillSlotArray(int NumberOfSlots,struct Slot Slots[]);

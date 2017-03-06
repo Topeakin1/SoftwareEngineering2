@@ -19,10 +19,10 @@ Main file example
 	
   - Place players into slots function
 	
-	Loop for asking to move or attack
-	 Move or attack according to user input
+  - Loop for asking to move or attack
+  -  Move or attack according to user input
 	
-	Print players function
+  - Print players function
 
 
 
@@ -49,28 +49,28 @@ Header
   -   Slot Type String
   -   Player currently in slot
 	
-	Function declerations.
+  - Function declerations.
 	
 	
 
 Player Functions
   - Assign capabilities to players
 
-	Moving
-	 Check tile types to move to and from
-	 Adjust capabilities of player
-	 Move Player
+  - Moving
+  -  Check tile types to move to and from
+  -  Adjust capabilities of player
+  -  Move Player
 	 
-	Attacking
-	 Check strength of attacked
-	 Adjust life points
+  - Attacking
+  -  Check strength of attacked
+  -  Adjust life points
 	
-	Print list of players
- 	 Format Name (Type, lifePoints)
+  - Print list of players
+  -  Format Name (Type, lifePoints)
 	
   - Input
 
-	Player choice
+  - Player choice
   -  Display avilable choices
   -  Input for what is chosen
 	 

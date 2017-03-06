@@ -27,7 +27,5 @@ int main(void) {
     
     PlayerAction(playersCount, slotsCount, players, slots);
     
-    /*
-	Print players function
-    */
+    Print(players, playersCount);
 }
