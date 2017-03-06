@@ -228,6 +228,13 @@ void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots)
         
         // Move or attack here depending on user input.
     }
+    
+    void Print(Player *currentPlayer, int numberOfPlayers) {
+
+	for(i=0; i<numberOfplayers; i++) {
+		printf("%s (%s, %d)\n",players[i].name, players[i].playertype,players[i].lifepoints ); 
+	}	
+}
 }
 
 
