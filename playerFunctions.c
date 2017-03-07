@@ -139,7 +139,7 @@ void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots)
             while(slots[++position].currentPlayer != i);
             // Finds the position of the current player.
             
-            printf("\nPlayer: %s\nCurrent Slot: %d %s\n\n", players[i].name, (position + 1), slots[position].slotType);
+            printf("Player: %s\nCurrent Slot: %d %s\n\n", players[i].name, (position + 1), slots[position].slotType);
             
             legalMoves[0] = (position != 0 && slots[position - 1].currentPlayer >= playerCount);
             // Checks if it's possible to move to the left.
@@ -224,7 +224,6 @@ void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots)
             
             // Takes input for what the player should do.
             
-            printf("Dist: %d\n", closestPlayerDist);
             
             
             if(choice == legalMoves[0])
@@ -248,6 +247,8 @@ void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots)
                 // attack closest player on the right.
             }
             // Move or attack depending on user input.
+            
+            puts("");
         }
         else
         {
@@ -294,6 +295,10 @@ void movePlayer(Player *player, Slot *slots, int currentPosition, int newPositio
                 printf("You gained 10 strength!\n");
             }
         }
+        else
+        {
+            puts("");
+        }
     }
     else if(!strcmp(slots[newPosition].slotType, "City"))
     {
@@ -323,6 +328,14 @@ void movePlayer(Player *player, Slot *slots, int currentPosition, int newPositio
                 printf("You gained 10 magic skill!\n");
             }
         }
+        else
+        {
+            puts("");
+        }
+    }
+    else
+    {
+        puts("");
     }
 }
 
@@ -359,12 +372,14 @@ void attackPlayer(Player *attacker, Player *attacked)
             attacker->lifePoints = 0;
         printf("You have died!\n");
         } 
-    }
-    
-    void Print(Player *currentPlayer, int numberOfPlayers) {
-
-	for(i=0; i<numberOfplayers; i++) {
-		printf("%s (%s, %d)\n",players[i].name, players[i].playertype,players[i].lifepoints ); 
-	}	
+    }  
 }
+
+void Print(Player *players, int numberOfPlayers) {
+    
+    char *playerTypes[4] = {"Elf", "Human", "Ogre", "Wizard"};
+
+	for(int i=0; i<numberOfPlayers; i++) {
+		printf("%s (%s, %d)\n",players[i].name, playerTypes[players[i].type] ,players[i].lifePoints ); 
+	}	
 }
