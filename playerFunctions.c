@@ -360,4 +360,11 @@ void attackPlayer(Player *attacker, Player *attacked)
         printf("You have died!\n");
         } 
     }
+    
+    void Print(Player *currentPlayer, int numberOfPlayers) {
+
+	for(i=0; i<numberOfplayers; i++) {
+		printf("%s (%s, %d)\n",players[i].name, players[i].playertype,players[i].lifepoints ); 
+	}	
+}
 }
