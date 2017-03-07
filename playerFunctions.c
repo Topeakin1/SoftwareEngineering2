@@ -133,101 +133,231 @@ void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots)
     
     for(i = 0; i < playerCount; i++)
     {
-        position = -1;
-        while(slots[++position].currentPlayer != i);
-        // Finds the position of the current player.
-        
-        printf("\nPlayer: %s\nCurrent Slot: %d %s\n\n", players[i].name, (position + 1), slots[position].slotType);
-        
-        legalMoves[0] = (position != 0 && slots[position - 1].currentPlayer >= playerCount);
-        // Checks if it's possible to move to the left.
-        
-        legalMoves[1] = (position != (slotCount - 1) && slots[position + 1].currentPlayer >= playerCount);
-        // Checks if it's possible to move to the right.
-        
-        closestPlayerDist = slotCount;
-        j = position;
-        while(--j > -1 && (slots[j].currentPlayer >= playerCount));
-        
-        
-        if(j != -1)
+        if(players[i].lifePoints != 0)
         {
-            closestPlayerDist = position - j;
-            legalMoves[2] = 1;
-            legalMoves[3] = 0;
-        }
-        
-        j = position;
-        while(++j < slotCount && slots[j].currentPlayer >= playerCount);
-        
-        if(j != slotCount)
-        {
-            if(closestPlayerDist > j - position)
+            position = -1;
+            while(slots[++position].currentPlayer != i);
+            // Finds the position of the current player.
+            
+            printf("\nPlayer: %s\nCurrent Slot: %d %s\n\n", players[i].name, (position + 1), slots[position].slotType);
+            
+            legalMoves[0] = (position != 0 && slots[position - 1].currentPlayer >= playerCount);
+            // Checks if it's possible to move to the left.
+            
+            legalMoves[1] = (position != (slotCount - 1) && slots[position + 1].currentPlayer >= playerCount);
+            // Checks if it's possible to move to the right.
+            
+            closestPlayerDist = slotCount;
+            j = position;
+            while(--j > -1 && (slots[j].currentPlayer >= playerCount));
+            
+            
+            if(j != -1)
             {
-                closestPlayerDist = j - position;
-                legalMoves[2] = 0;
-                legalMoves[3] = 1;
-            }
-            else if(closestPlayerDist == j - position)
-            {
+                closestPlayerDist = position - j;
                 legalMoves[2] = 1;
-                legalMoves[3] = 1; 
+                legalMoves[3] = 0;
             }
+            
+            j = position;
+            while(++j < slotCount && slots[j].currentPlayer >= playerCount);
+            
+            if(j != slotCount)
+            {
+                if(closestPlayerDist > j - position)
+                {
+                    closestPlayerDist = j - position;
+                    legalMoves[2] = 0;
+                    legalMoves[3] = 1;
+                }
+                else if(closestPlayerDist == j - position)
+                {
+                    legalMoves[2] = 1;
+                    legalMoves[3] = 1; 
+                }
+            }
+            /* 
+             * Finds the closest player if any and the distance to them.
+             * Then finds the closest player on the right and checks who
+             * Then sets attacking the closest player as a legal move.
+             * If two players are the same distance away, both are legal.
+             */
+            
+            
+            
+            
+            j = 0;
+            printf("What do you want to do?\n");
+            
+            if(legalMoves[0])
+            {
+                legalMoves[0] = ++j;
+                printf(" %d: Move left to %s\n", j, slots[position-1].slotType);
+            }
+            
+            if(legalMoves[1])
+            {
+                legalMoves[1] = ++j;
+                printf(" %d: Move right to %s\n", j, slots[position+1].slotType);
+            }
+            
+            if(legalMoves[2])
+            {
+                legalMoves[2] = ++j;
+                printf(" %d: Attack %s\n", j, players[slots[position - closestPlayerDist].currentPlayer].name);
+            }
+            
+            if(legalMoves[3])
+            {
+                legalMoves[3] = ++j;
+                printf(" %d: Attack %s\n", j, players[slots[position + closestPlayerDist].currentPlayer].name);
+            }
+            
+            // Displays a list of options for the player based on what is possible from their position.
+            
+            do
+            {
+                printf("  : ");
+                fgets(tempInput, MAX_STRING_LENGTH - 1, stdin);
+                choice = strtol(tempInput, NULL, 10);
+            }while(choice < 1 || choice > j);
+            
+            // Takes input for what the player should do.
+            
+            printf("Dist: %d\n", closestPlayerDist);
+            
+            
+            if(choice == legalMoves[0])
+            {
+                movePlayer(&players[i], slots, position, position - 1);
+                // move left.
+            }
+            else if(choice == legalMoves[1])
+            {
+                movePlayer(&players[i], slots, position, position + 1);
+                // move right.
+            }
+            else if(choice == legalMoves[2])
+            {
+                attackPlayer(&players[i], &players[slots[position - closestPlayerDist].currentPlayer]);
+                // attack closest player on the left.
+            }
+            else if(choice == legalMoves[3])
+            {
+                attackPlayer(&players[i], &players[slots[position + closestPlayerDist].currentPlayer]);
+                // attack closest player on the right.
+            }
+            // Move or attack depending on user input.
         }
-        /* 
-         * Finds the closest player if any and the distance to them.
-         * Then finds the closest player on the right and checks who
-         * Then sets attacking the closest player as a legal move.
-         * If two players are the same distance away, both are legal.
-         */
-        
-        
-        
-        
-        j = 0;
-        printf("What do you want to do?\n");
-        
-        if(legalMoves[0])
+        else
         {
-            legalMoves[0] = ++j;
-            printf(" %d: Move left\n", j);
+            printf("Player %d\nYou are dead.\n", players[i].name);
         }
-        
-        if(legalMoves[1])
-        {
-            legalMoves[1] = ++j;
-            printf(" %d: Move right\n", j);
-        }
-        
-        if(legalMoves[2])
-        {
-            legalMoves[2] = ++j;
-            printf(" %d: Attack %s\n", j, players[slots[position - closestPlayerDist].currentPlayer].name);
-        }
-        
-        if(legalMoves[3])
-        {
-            legalMoves[3] = ++j;
-            printf(" %d: Attack %s\n", j, players[slots[position + closestPlayerDist].currentPlayer].name);
-        }
-        
-        puts("");
-        
-        // Displays a list of options for the player based on what is possible from their position.
-        
-        do
-        {
-            printf("  : ");
-            fgets(tempInput, MAX_STRING_LENGTH - 1, stdin);
-            choice = strtol(tempInput, NULL, 10);
-        }while(choice < 1 || choice > j);
-        
-        // Takes input for what the player should do.
-        
-        
-        
-        // Move or attack here depending on user input.
     }
 }
 
+// Swaps player position and adjusts their capabilities.
+void movePlayer(Player *player, Slot *slots, int currentPosition, int newPosition)
+{
+    int temp;
+    
+    temp = slots[currentPosition].currentPlayer;
+    slots[currentPosition].currentPlayer = slots[newPosition].currentPlayer;
+    slots[newPosition].currentPlayer = temp;
+    
+    
+    if(!strcmp(slots[newPosition].slotType, "Hill"))
+    {
+        if(player->dexterity < 50)
+        {
+            if(player->strength < 10)
+            {
+                player->strength = 0;
+                printf("You lost all of your strength!\n");
+            }
+            else
+            {
+                player->strength -= 10;
+                printf("You lost 10 of your strength!\n");
+            }
+        }
+        else if(player->dexterity >= 60)
+        {
+            if(player->strength > 90)
+            {
+                player->strength = 100;
+                printf("You gained maximum strength!\n");
+            }
+            else
+            {
+                player->strength += 10;
+                printf("You gained 10 strength!\n");
+            }
+        }
+    }
+    else if(!strcmp(slots[newPosition].slotType, "City"))
+    {
+        if(player->smartness <= 50)
+        {
+            if(player->magicSkill < 10)
+            {
+                player->magicSkill = 0;
+                printf("You lost all of your magic skill!\n");
+            }
+            else
+            {
+                player->magicSkill -= 10;
+                printf("You lost 10 of your magic skill!\n");
+            }
+        }
+        else if(player->smartness > 60)
+        {
+            if(player->magicSkill > 90)
+            {
+                player->magicSkill = 100;
+                printf("You gained maximum magic skill!\n");
+            }
+            else
+            {
+                player->magicSkill += 10;
+                printf("You gained 10 magic skill!\n");
+            }
+        }
+    }
+}
 
+// Swaps calculates and prints damage being dealt.
+void attackPlayer(Player *attacker, Player *attacked)
+{
+    int damage;
+    if(attacked->strength <= 70)
+    {
+        damage = attacker->strength * 0.5;
+        printf("%s lost %d life points!\n", attacked->name, damage);
+        
+        if(attacked->lifePoints > damage)
+        {
+            attacked->lifePoints -= damage;
+        }
+        else
+        {
+            attacked->lifePoints = 0;
+        printf("%s has died!\n", attacked->name);
+        }
+    }
+    else
+    {
+        damage = attacked->strength * 0.3;
+        printf("You lost %d life points!\n", damage);
+        
+        if(attacker->lifePoints > damage)
+        {
+            attacker->lifePoints -= damage;
+        }
+        else
+        {
+            attacker->lifePoints = 0;
+        printf("You have died!\n");
+        } 
+    }
+}
