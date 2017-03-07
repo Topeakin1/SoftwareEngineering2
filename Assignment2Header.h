@@ -43,6 +43,8 @@ void HumanPlayer(Player *currentPlayer);
 void OgrePlayer(Player *currentPlayer);
 void WizardPlayer(Player *currentPlayer);
 void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots);
+void movePlayer(Player *player, Slot *slots, int currentPosition, int newPosition);
+void attackPlayer(Player *attacker, Player *attacked);
 
 // Slot functions
 void FillSlotArray(int NumberOfSlots,struct Slot Slots[]);
