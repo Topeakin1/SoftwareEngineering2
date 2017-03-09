@@ -123,7 +123,6 @@ void WizardPlayer(Player *currentPlayer)
     currentPlayer->dexterity = RandInt(1, 100);
 }
 
-<<<<<<< HEAD
 void PlayerAction(int playerCount, int slotCount, Player *players, Slot *slots)
 {
     int i, position, choice;
@@ -373,30 +372,10 @@ void attackPlayer(Player *attacker, Player *attacked)
             attacker->lifePoints = 0;
         printf("You have died!\n");
         } 
-<<<<<<< HEAD
-    }
-<<<<<<< HEAD
-=======
-//printing out list of players
-for(i=0; i<numberOfplayers; i++) {
-	printf("name:%s\n",players[i].name);
-	printf("type:%s\n",players[i].playertype);
-	printf("smartness:%d\n",players[i].smartness);
-	printf("strength:%d\n",players[i].strength);
-	printf("MagicSkill:%d\n",players[i].magicSkill);
-	printf("luck:%d\n",players[i].luck);
-	printf("lifepoints:%d\n",players[i].lifepoints);
-	printf("dexterity:%d\n",players[i].dexterity);
-	printf("currentSlot:%d\n\n",players[i].currentSlot);
-	
->>>>>>> c69d472... printed out list of players
-=======
-=======
     }  
 }
 
 void Print(Player *players, int numberOfPlayers) {
->>>>>>> 4ac35e9... fully implemented moving and attacking and tested printing of players
     
     char *playerTypes[4] = {"Elf", "Human", "Ogre", "Wizard"};
 
@@ -404,8 +383,3 @@ void Print(Player *players, int numberOfPlayers) {
 		printf("%s (%s, %d)\n",players[i].name, playerTypes[players[i].type] ,players[i].lifePoints ); 
 	}	
 }
-<<<<<<< HEAD
->>>>>>> 710e622... re did the printing
-}
-=======
->>>>>>> 4ac35e9... fully implemented moving and attacking and tested printing of players
