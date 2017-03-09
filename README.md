@@ -9,3 +9,12 @@ PlayersNSlots function
 Print function
 
 Adrian Wennberg Part:
+Create the project outline.
+Writing up the design decisions.
+Implementing and testing the main.
+Create structs for players and slots.
+Declare functions.
+Taking input for number of players and player info.
+Assigning capabilities to the players.
+Displaying possible choices for players.
+Implementing attacking and moving.
