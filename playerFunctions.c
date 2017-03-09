@@ -382,4 +382,8 @@ void Print(Player *players, int numberOfPlayers) {
 	for(int i=0; i<numberOfPlayers; i++) {
 		printf("%s (%s, %d)\n",players[i].name, playerTypes[players[i].type] ,players[i].lifePoints ); 
 	}	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9db4c41b3d884227a4b440f5409f0f5c61c70ad5
